@@ -7,7 +7,7 @@ Reproduire intégralement le site du dépôt GitHub fourni, en conservant sa pag
 - Remplacer le fond bleu de « Cercle 3 · Infrastructure créative » par un fond noir.
 - Remplacer le fond bleu de « Message global » par un fond noir.
 - Remplacer « Créer de nouveaux imaginaires » par « Créer des imaginaires ».
-- Conserver « Valoriser les savoirs » tel quel partout où il apparaît.
+- Remplacer « Découvrir les savoirs » par « Valoriser les savoirs », juste au-dessus de « Créer des imaginaires ».
 
 ## Mise en œuvre
 - Importer les fichiers du site source dans la structure TanStack existante sans changer son architecture.

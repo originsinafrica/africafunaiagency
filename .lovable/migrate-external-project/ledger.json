@@ -1,0 +1,103 @@
+{
+  "source": "https://github.com/originsinafrica/africafunaiagency5",
+  "capabilities": [
+    {
+      "capability": "code",
+      "source": "GitHub repository",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "schema",
+      "source": "Inspection manifest",
+      "outcome": "absent",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "records",
+      "source": "Inspection manifest",
+      "outcome": "absent",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "auth identities",
+      "source": "Source inspection",
+      "outcome": "absent",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "authorization",
+      "source": "Source inspection",
+      "outcome": "absent",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "uploaded file bytes",
+      "source": "Four supplied JPEG images",
+      "outcome": "migrate",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "external providers",
+      "source": "Source inspection",
+      "outcome": "absent",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "public endpoints",
+      "source": "Source inspection",
+      "outcome": "absent",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "callbacks",
+      "source": "Source inspection",
+      "outcome": "absent",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "webhooks",
+      "source": "Source inspection",
+      "outcome": "absent",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "schedules",
+      "source": "Source inspection",
+      "outcome": "absent",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "secrets",
+      "source": "Inspection manifest",
+      "outcome": "absent",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "cutover",
+      "source": "Unpublished Lovable project",
+      "outcome": "not_required",
+      "status": "verified",
+      "next_action": null
+    },
+    {
+      "capability": "verification",
+      "source": "Preview",
+      "outcome": "verify",
+      "status": "verified",
+      "next_action": null
+    }
+  ]
+}

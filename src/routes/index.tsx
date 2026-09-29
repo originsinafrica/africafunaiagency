@@ -391,8 +391,8 @@ function Constellation() {
                       <circle className="constellation-hit" cx={n.x} cy={n.y} r={42} fill="transparent" />
                       {focusId === n.id && <circle cx={n.x} cy={n.y} r={36} fill="var(--cream)" fillOpacity="0.18" />}
                       <circle cx={n.x} cy={n.y} r={24} fill="var(--cream)" />
-                      <text className="constellation-label" x={n.x} y={n.y + 46} textAnchor="middle" fontSize="17" fontWeight="700" fill="var(--cream)" fontFamily="Fraunces, serif">{n.label}</text>
-                      <text className="constellation-label" x={n.x} y={n.y + 64} textAnchor="middle" fontSize="12" fill="var(--cream)" fillOpacity="0.6" fontFamily="Space Grotesk, sans-serif">{n.sub}</text>
+                      <text className="constellation-label" x={n.x} y={n.y - 40} textAnchor="middle" fontSize="17" fontWeight="700" fill="var(--cream)" fontFamily="Fraunces, serif">{n.label}</text>
+                      <text className="constellation-label" x={n.x} y={n.y + 44} textAnchor="middle" fontSize="12" fill="var(--cream)" fillOpacity="0.6" fontFamily="Space Grotesk, sans-serif">{n.sub}</text>
                     </g>
                   ))}
 
@@ -416,8 +416,7 @@ function Constellation() {
                   {/* Centre AAA */}
                   <g className="cursor-pointer" onMouseEnter={() => setHovered("core")} onMouseLeave={() => setHovered(null)} onClick={() => setActiveId("core")}>
                     <circle cx={CX} cy={CY} r={92} fill="var(--sun)" fillOpacity={focusId === "core" || !focusId ? 1 : 0.5} />
-                    <text x={CX} y={CY - 8} textAnchor="middle" fontSize="44" fontWeight="700" fill="var(--navy)" fontFamily="Fraunces, serif">AAA</text>
-                    <text x={CX} y={CY + 22} textAnchor="middle" fontSize="12" letterSpacing="3" fill="var(--navy)" fillOpacity="0.8" fontFamily="Space Grotesk, sans-serif">AFRICAFUN AI AGENCY</text>
+                    <text x={CX} y={CY + 15} textAnchor="middle" fontSize="44" fontWeight="700" fill="var(--navy)" fontFamily="Fraunces, serif">AAA</text>
                   </g>
                 </svg>
 

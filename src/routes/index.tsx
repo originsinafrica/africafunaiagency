@@ -499,10 +499,10 @@ function AgentExplorer() {
   if (!agent) return null;
   return (
     <div className="mt-12 grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.35fr)]">
-      <div className="grid grid-cols-2 gap-px bg-cream/15 sm:grid-cols-4 lg:grid-cols-2">
+      <div className="grid grid-cols-2 gap-px bg-amber/20 sm:grid-cols-4 lg:grid-cols-2">
         {agents.map((item) => (
-          <button key={item.id} type="button" onClick={() => setActiveId(item.id)} aria-pressed={item.id === agent.id} className={`group min-h-28 p-4 text-left transition-colors ${item.id === agent.id ? "bg-sun text-navy" : "bg-blue-glow text-cream hover:bg-forest"}`}>
-            <span className={`font-display text-2xl ${item.id === agent.id ? "text-red" : "text-sky"}`}>{item.number}</span>
+          <button key={item.id} type="button" onClick={() => setActiveId(item.id)} aria-pressed={item.id === agent.id} className={`group min-h-28 p-4 text-left transition-colors ${item.id === agent.id ? "bg-terracotta text-earth-ink" : "bg-earth-panel text-cream hover:bg-amber hover:text-earth-ink"}`}>
+            <span className={`font-display text-2xl ${item.id === agent.id ? "text-cream" : "text-amber group-hover:text-earth-ink"}`}>{item.number}</span>
             <span className="mt-3 block text-sm font-semibold leading-snug">{item.name}</span>
           </button>
         ))}
@@ -510,24 +510,24 @@ function AgentExplorer() {
       <article key={agent.id} className="animate-fade-in bg-paper p-6 text-navy shadow-soft sm:p-8">
         <div className="grid gap-6 border-b border-line pb-6 sm:grid-cols-[minmax(0,1fr)_minmax(13rem,0.8fr)] sm:items-start">
           <div className="min-w-0">
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-forest">Intelligence {agent.number}</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-terracotta">Intelligence {agent.number}</p>
             <h3 className="mt-2 font-display text-3xl leading-tight md:text-4xl">{agent.name}</h3>
             <p className="mt-3 max-w-xl text-justify text-sm leading-relaxed text-navy/70">{agent.mission}</p>
           </div>
           <div className="sm:text-right">
             <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-navy/45">Enveloppe</p>
-            <p className="mt-1 font-display text-lg text-forest sm:text-xl">{agent.budget}</p>
+            <p className="mt-1 font-display text-lg text-terracotta sm:text-xl">{agent.budget}</p>
           </div>
         </div>
         <div className="mt-6 grid gap-7 sm:grid-cols-2">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-navy/45">Responsabilités</p>
-            <ul className="mt-3 grid gap-2">{agent.duties.map((d) => <li key={d} className="flex items-start gap-2 text-sm text-navy/75"><span className="mt-2 size-1.5 shrink-0 bg-forest" />{d}</li>)}</ul>
+            <ul className="mt-3 grid gap-2">{agent.duties.map((d) => <li key={d} className="flex items-start gap-2 text-sm text-navy/75"><span className="mt-2 size-1.5 shrink-0 bg-amber" />{d}</li>)}</ul>
           </div>
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-navy/45">Dans le studio</p>
             <p className="mt-3 text-sm leading-relaxed text-navy/75">{agent.usageWho}</p>
-            <p className="mt-3 font-display text-lg text-forest">{agent.usageSteps}</p>
+            <p className="mt-3 font-display text-lg text-terracotta">{agent.usageSteps}</p>
           </div>
         </div>
         <div className="mt-6 flex flex-wrap gap-2">{agent.tools.map(([tool]) => <span key={tool} className="border border-line bg-canvas px-2.5 py-1.5 text-[10px] font-semibold uppercase text-navy/65">{tool}</span>)}</div>
@@ -634,13 +634,13 @@ function Index() {
         </section>
 
         {/* AGENTS IA — FICHES */}
-        <section id="agents" className="relative overflow-hidden bg-ink py-24 text-cream lg:py-32">
-          <div className="network-grid absolute inset-0 opacity-25" />
+        <section id="agents" className="relative overflow-hidden bg-earth-ink py-24 text-cream lg:py-32">
+          <div className="network-grid-earth absolute inset-0 opacity-30" />
           <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-12">
-              <SectionKicker tone="text-sky lg:col-span-3">Cercle 3 · Infrastructure créative</SectionKicker>
+              <SectionKicker tone="text-amber lg:col-span-3">Cercle 3 · Infrastructure créative</SectionKicker>
               <div className="lg:col-span-9">
-                <h2 className="font-display text-5xl leading-none md:text-7xl">Huit intelligences.<br /><em className="text-sky">Une force orchestrée.</em></h2>
+                <h2 className="font-display text-5xl leading-none md:text-7xl">Huit intelligences.<br /><em className="text-amber">Une force orchestrée.</em></h2>
                 <p className="mt-6 max-w-2xl text-cream/70">Choisissez une intelligence pour découvrir sa mission, ses usages, ses outils et son enveloppe. Chaque outil alimente plusieurs fonctions du studio.</p>
               </div>
             </div>
@@ -809,13 +809,13 @@ function Index() {
         </section>
 
         {/* MESSAGE GLOBAL */}
-        <section className="bg-ink py-24 text-cream lg:py-32">
+        <section className="bg-earth-ink py-24 text-cream lg:py-32">
           <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <SectionKicker tone="text-sun">Message global</SectionKicker>
-            <h2 className="mt-8 max-w-5xl font-display text-4xl leading-[1.05] md:text-6xl">Nous produisons des contenus qui ouvrent le regard.<br /><em className="text-sun">Nous construisons des façons de regarder.</em></h2>
-            <div className="mt-12 grid gap-px bg-cream/15 sm:grid-cols-2 lg:grid-cols-3">
+            <SectionKicker tone="text-terracotta">Message global</SectionKicker>
+            <h2 className="mt-8 max-w-5xl font-display text-4xl leading-[1.05] md:text-6xl">Nous produisons des contenus qui ouvrent le regard.<br /><em className="text-terracotta">Nous construisons des façons de regarder.</em></h2>
+            <div className="mt-12 grid gap-px bg-amber/20 sm:grid-cols-2 lg:grid-cols-3">
               {["Regarder le quotidien", "Comprendre l'histoire", "Valoriser les savoirs", "Explorer les cultures", "Créer des imaginaires", "Partager avec le monde"].map((x, i) => (
-                <p key={x} className="bg-blue-glow p-6 font-display text-xl leading-snug md:text-2xl"><span className="mr-3 text-xs font-bold text-sky">0{i + 1}</span>{x}</p>
+                <p key={x} className="bg-earth-panel p-6 font-display text-xl leading-snug md:text-2xl"><span className="mr-3 text-xs font-bold text-amber">0{i + 1}</span>{x}</p>
               ))}
             </div>
           </div>

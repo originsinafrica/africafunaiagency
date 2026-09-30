@@ -46,6 +46,10 @@
   --color-cosmos-deep: var(--cosmos-deep);
   --color-ink: var(--ink);
   --color-forest-bright: var(--forest-bright);
+  --color-earth-ink: var(--earth-ink);
+  --color-earth-panel: var(--earth-panel);
+  --color-amber: var(--amber);
+  --color-terracotta: var(--terracotta);
 }
 
 :root {
@@ -56,6 +60,10 @@
   --ink: oklch(0.085 0.01 145);
   --forest: oklch(0.36 0.11 151);
   --forest-bright: oklch(0.66 0.18 145);
+  --earth-ink: oklch(0.105 0.018 55);
+  --earth-panel: oklch(0.18 0.035 55);
+  --amber: oklch(0.76 0.14 72);
+  --terracotta: oklch(0.61 0.16 38);
   --sun: oklch(0.82 0.17 89);
   --sun-soft: oklch(0.94 0.07 91);
   --red: oklch(0.58 0.2 30);
@@ -117,6 +125,12 @@
 
 @utility network-grid {
   background-image: linear-gradient(color-mix(in oklab, var(--sky) 18%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--sky) 18%, transparent) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(circle at center, black, transparent 78%);
+}
+
+@utility network-grid-earth {
+  background-image: linear-gradient(color-mix(in oklab, var(--amber) 16%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--amber) 16%, transparent) 1px, transparent 1px);
   background-size: 52px 52px;
   mask-image: radial-gradient(circle at center, black, transparent 78%);
 }

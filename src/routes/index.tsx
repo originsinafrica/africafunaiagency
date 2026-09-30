@@ -244,12 +244,12 @@ const advisorAngles = [60, 180, 300];
 const agentAngles = [22.5, 67.5, 112.5, 157.5, 202.5, 247.5, 292.5, 337.5];
 
 const cTalents = talents.map((t, i) => {
-  const [x, y] = polar(200, talentAngles[i] ?? 0);
+  const [x, y] = polar(320, advisorAngles[i] ?? 0);
   return { ...t, kind: "talent" as NodeKind, id: t.id, label: t.id === "fleur" ? "Fleur" : t.name, sub: t.role, blurb: t.short, x, y };
 });
 
 const cAdvisers = advisers.map((a, i) => {
-  const [x, y] = polar(320, advisorAngles[i] ?? 0);
+  const [x, y] = polar(200, talentAngles[i] ?? 0);
   return { ...a, kind: "advisor" as NodeKind, id: a.id, label: a.name, sub: a.role, blurb: a.domains, x, y };
 });
 
@@ -268,7 +268,7 @@ const coreNode: CNode = {
   y: CY,
 };
 
-const allNodes: CNode[] = [coreNode, ...cTalents, ...cAdvisers, ...cAgents];
+const allNodes: CNode[] = [coreNode, ...cAdvisers, ...cTalents, ...cAgents];
 
 const edges: [string, string][] = [
   ["core", "romeo"], ["core", "cesaire"], ["core", "fleur"],
@@ -317,7 +317,7 @@ function Constellation() {
           <SectionKicker tone="text-sky lg:col-span-3">Architecture collaborative</SectionKicker>
           <div className="lg:col-span-9">
             <h2 className="font-display text-5xl leading-[0.95] md:text-7xl">Chaque force se relie.<br /><em className="text-sun">La création circule.</em></h2>
-            <p className="mt-6 max-w-2xl leading-relaxed text-cream/70">Une constellation vivante : chaque personne se relie à plusieurs intelligences, chaque agent sert plusieurs opérationnels et chaque conseiller collabore avec plusieurs fonctions. <span className="hidden sm:inline">Survolez la constellation, puis cliquez sur un élément pour ouvrir sa fiche.</span><span className="sm:hidden">Touchez un élément pour ouvrir sa fiche.</span></p>
+            <p className="mt-6 max-w-2xl leading-relaxed text-cream/70">Une constellation vivante : les conseillers définissent le cap, les opérationnels accompagnent la vision et chaque intelligence sert plusieurs fonctions. <span className="hidden sm:inline">Survolez la constellation, puis cliquez sur un élément pour ouvrir sa fiche.</span><span className="sm:hidden">Touchez un élément pour ouvrir sa fiche.</span></p>
           </div>
         </div>
 
@@ -389,8 +389,8 @@ function Constellation() {
                       onClick={() => setActiveId((v) => (v === n.id ? null : n.id))}
                     >
                       <circle className="constellation-hit" cx={n.x} cy={n.y} r={42} fill="transparent" />
-                      {focusId === n.id && <circle cx={n.x} cy={n.y} r={36} fill="var(--cream)" fillOpacity="0.18" />}
-                      <circle cx={n.x} cy={n.y} r={24} fill="var(--cream)" />
+                      {focusId === n.id && <circle cx={n.x} cy={n.y} r={44} fill="var(--sun)" fillOpacity="0.2" />}
+                      <circle cx={n.x} cy={n.y} r={32} fill="var(--sun)" />
                       <text className="constellation-label" x={n.x} y={n.y - 40} textAnchor="middle" fontSize="17" fontWeight="700" fill="var(--cream)" fontFamily="Fraunces, serif">{n.label}</text>
                       <text className="constellation-label" x={n.x} y={n.y + 44} textAnchor="middle" fontSize="12" fill="var(--cream)" fillOpacity="0.6" fontFamily="Space Grotesk, sans-serif">{n.sub}</text>
                     </g>
@@ -406,8 +406,8 @@ function Constellation() {
                       onClick={() => setActiveId((v) => (v === n.id ? null : n.id))}
                     >
                       <circle className="constellation-hit" cx={n.x} cy={n.y} r={48} fill="transparent" />
-                      {focusId === n.id && <circle cx={n.x} cy={n.y} r={44} fill="var(--sun)" fillOpacity="0.2" />}
-                      <circle cx={n.x} cy={n.y} r={32} fill="var(--sun)" />
+                      {focusId === n.id && <circle cx={n.x} cy={n.y} r={36} fill="var(--cream)" fillOpacity="0.18" />}
+                      <circle cx={n.x} cy={n.y} r={24} fill="var(--cream)" />
                       <text className="constellation-label" x={n.x} y={n.y - 48} textAnchor="middle" fontSize="20" fontWeight="700" fill="var(--cream)" fontFamily="Fraunces, serif">{n.label}</text>
                       <text className="constellation-label" x={n.x} y={n.y + 56} textAnchor="middle" fontSize="12" fill="var(--cream)" fillOpacity="0.65" fontFamily="Space Grotesk, sans-serif">{n.sub}</text>
                     </g>
@@ -424,8 +424,8 @@ function Constellation() {
                   <span>{focusId ? nodeById(focusId).blurb : <><span className="hidden sm:inline">Survolez un élément pour lire son rôle — cliquez pour ouvrir sa fiche.</span><span className="sm:hidden">Touchez un cercle pour lire son rôle et ouvrir sa fiche.</span></>}</span>
                 </div>
                 <div className="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.15em]">
-                  <span className="flex items-center gap-2"><i className="size-3 rounded-full bg-sun" /> Opérationnels · l'action</span>
-                  <span className="flex items-center gap-2"><i className="size-3 rounded-full bg-cream" /> Conseillers · le recul</span>
+                  <span className="flex items-center gap-2"><i className="size-3 rounded-full bg-sun" /> Conseillers · le cap</span>
+                  <span className="flex items-center gap-2"><i className="size-3 rounded-full bg-cream" /> Opérationnels · la construction</span>
                   <span className="flex items-center gap-2"><i className="size-3 rounded-full bg-sky" /> Intelligences IA · la capacité</span>
                 </div>
               </div>
@@ -585,14 +585,36 @@ function Index() {
         {/* CONSTELLATION */}
         <Constellation />
 
-        {/* TALENTS */}
-          <section id="operationnels" className="bg-canvas py-24 lg:py-32">
+        {/* CONSEILLERS */}
+        <section className="bg-paper py-24 lg:py-32">
           <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
             <div className="grid gap-6 lg:grid-cols-12">
-              <SectionKicker tone="lg:col-span-3">Cercle 1 · Les opérationnels</SectionKicker>
+              <SectionKicker tone="lg:col-span-3">Cercle 1 · Les conseillers</SectionKicker>
               <div className="lg:col-span-9">
-                <h2 className="font-display text-5xl leading-[0.95] md:text-6xl">Les humains donnent<br /><em className="text-forest">la direction.</em></h2>
-                <p className="mt-5 max-w-2xl leading-relaxed text-navy/65">Trois opérationnels prennent les décisions, portent la responsabilité et dirigent plusieurs intelligences au service de leur vision.</p>
+                <h2 className="font-display text-5xl leading-[0.95] md:text-6xl">Les forces d'orientation<br /><em className="text-forest">qui définissent le cap.</em></h2>
+              </div>
+            </div>
+            <div className="mt-12 grid gap-px bg-line md:grid-cols-3">
+              {advisers.map((adviser, i) => (
+                <article key={adviser.id} className="bg-navy p-7 text-cream">
+                  <div className="flex items-center justify-between">
+                    <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-sun">Conseiller 0{i + 1} · {adviser.role}</p>
+                  </div>
+                  <h3 className="mt-8 font-display text-3xl">{adviser.name}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-cream/70">{adviser.domains}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* TALENTS */}
+        <section id="operationnels" className="bg-canvas py-24 lg:py-32">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+            <div className="grid gap-6 lg:grid-cols-12">
+              <SectionKicker tone="lg:col-span-3">Cercle 2 · Les opérationnels</SectionKicker>
+              <div className="lg:col-span-9">
+                <h2 className="font-display text-5xl leading-[0.95] md:text-6xl">Des bâtisseurs<br /><em className="text-forest">qui accompagnent la vision.</em></h2>
               </div>
             </div>
             <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -605,30 +627,6 @@ function Index() {
                   <p className="mt-1 text-xs font-bold uppercase tracking-[0.12em] text-forest">{talent.role}</p>
                   <p className="mt-5 text-sm leading-relaxed text-navy/70">{talent.short}</p>
                   <p className="mt-6 border-t border-line pt-4 text-xs leading-relaxed text-navy/60">{talent.domains}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CONSEILLERS */}
-        <section className="bg-paper py-24 lg:py-32">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <div className="grid gap-6 lg:grid-cols-12">
-              <SectionKicker tone="lg:col-span-3">Cercle 2 · Les conseillers</SectionKicker>
-              <div className="lg:col-span-9">
-                <h2 className="font-display text-5xl leading-[0.95] md:text-6xl">Des forces d'orientation<br /><em className="text-forest">et d'amplification.</em></h2>
-                <p className="mt-5 max-w-2xl leading-relaxed text-navy/65">Autour du système, les conseillers apportent le recul, l'expertise et l'orientation — et amplifient chaque action de l'équipe. Chacun peut intervenir sur plusieurs fonctions.</p>
-              </div>
-            </div>
-            <div className="mt-12 grid gap-px bg-line md:grid-cols-3">
-              {advisers.map((adviser, i) => (
-                <article key={adviser.id} className="bg-navy p-7 text-cream">
-                  <div className="flex items-center justify-between">
-                    <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-sun">Conseiller 0{i + 1} · {adviser.role}</p>
-                  </div>
-                  <h3 className="mt-8 font-display text-3xl">{adviser.name}</h3>
-                  <p className="mt-4 text-sm leading-relaxed text-cream/70">{adviser.domains}</p>
                 </article>
               ))}
             </div>

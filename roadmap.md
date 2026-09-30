@@ -6,3 +6,4 @@
 - [x] Vérifier le rendu ordinateur/mobile, les interactions et l’absence d’erreurs.
 - [x] Placer les conseillers en Cercle 1 et au centre de la constellation, puis les opérationnels en Cercle 2.
 - [x] Inverser les couleurs jaune et blanche des conseillers et des opérationnels sur la constellation.
+- [x] Appliquer la palette « Terre & Ambre » aux sections « Cercle 3 » et « Message global ».

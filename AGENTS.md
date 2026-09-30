@@ -11,3 +11,4 @@
 
 - Preserve the imported Africafun site as a single scrolling route because its navigation and storytelling are intentionally section-based.
 - Keep supplied site imagery in Lovable Asset pointers so the media remains project-scoped and lightweight.
+- Scope the Earth & Amber semantic color tokens to Cercle 3 and Message global so the rest of the imported palette remains unchanged.
